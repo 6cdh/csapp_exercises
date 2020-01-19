@@ -139,15 +139,15 @@ TEST(chapter2, threefourths) {
 // }
 /* } */
 
-TEST(chapter2, float_i2f) {
-    for (int i = INT_MIN; i != INT_MAX; ++i) {
-        auto res = Float{.binary = float_i2f(i)};
-        auto ret = Float{.f = (float)i};
-        ASSERT_EQ(res.binary, ret.binary)
-            << "i: " << std::hex << "0x" << i << " = " << std::dec << i
-            << "\nReturn: " << std::hex << "0x" << res.binary << " = " << res.f
-            << "\nExpect: " << std::hex << "0x" << ret.binary << " = " << ret.f;
-    }
-    auto ret = Float{.f = (float)INT_MAX};
-    ASSERT_EQ(float_i2f(INT_MAX), ret.binary);
-}
+// TEST(chapter2, float_i2f) {
+//     for (int i = INT_MIN; i != INT_MAX; ++i) {
+//         auto res = Float{.binary = float_i2f(i)};
+//         auto ret = Float{.f = (float)i};
+//         ASSERT_EQ(res.binary, ret.binary)
+//             << "i: " << std::hex << "0x" << i << " = " << std::dec << i
+//             << "\nReturn: " << std::hex << "0x" << res.binary << " = " << res.f
+//             << "\nExpect: " << std::hex << "0x" << ret.binary << " = " << ret.f;
+//     }
+//     auto ret = Float{.f = (float)INT_MAX};
+//     ASSERT_EQ(float_i2f(INT_MAX), ret.binary);
+/* } */

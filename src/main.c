@@ -4,5 +4,5 @@
 #include "ch2.h"
 
 int main() {
-    printf("Hello, src");
+    printf("%f", (float)16777217);
 }

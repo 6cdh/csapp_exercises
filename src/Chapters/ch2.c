@@ -144,12 +144,6 @@ int float_f2i(float_bits f) {
     return n;
 }
 
-/* float_bits round(float_bits f) { */
-/* unsigned exp = f >> 23 & 0xFF; */
-/* unsigned frac = f & 0x7FFFFF; */
-/* if  */
-/* } */
-
 float_bits float_i2f(int x) {
     if (x == 0) {
         return 0;
