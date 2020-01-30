@@ -47,7 +47,7 @@ void *memset_plus(void *s, int c, size_t n) {
         }
         size_t repeat = n / OPSIZ;
         n %= OPSIZ;
-        while (repeat != 0) {
+        while (repeat >= 8) {
             ((op_t *)sp)[0] = cccc;
             ((op_t *)sp)[1] = cccc;
             ((op_t *)sp)[2] = cccc;
