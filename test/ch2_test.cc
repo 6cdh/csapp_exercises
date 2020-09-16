@@ -90,64 +90,64 @@ TEST(chapter2, threefourths) {
     EXPECT_EQ(threefourths(-9), -6);
 }
 
-/* TEST(chapter2, float_twice) { */
-// for (float_bits i = 0; i <= 0x7F800000; ++i) {
-//     auto ret = float_twice(i);
-//     auto expect_value = (2 * (*((float *)&i)));
-//     ASSERT_EQ(ret, (*((float_bits *)&expect_value)))
-//         << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
-//         << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
-//         << "\nExpect: " << expect_value << " == 0x" << std::hex
-//         << (*((float_bits *)&expect_value));
-// }
-// for (float_bits i = 0x80000000; i <= 0x8F800000; ++i) {
-//     auto ret = float_twice(i);
-//     auto expect_value = (2 * (*((float *)&i)));
-//     ASSERT_EQ(ret, (*((float_bits *)&expect_value)))
-//         << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
-//         << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
-//         << "\nExpect: " << expect_value << " == 0x" << std::hex
-//         << (*((float_bits *)&expect_value));
-// }
-/* } */
+TEST(chapter2, float_twice) {
+    for (float_bits i = 0; i <= 0x7F800000; ++i) {
+        auto ret = float_twice(i);
+        auto expect_value = (2 * (*((float *)&i)));
+        ASSERT_EQ(ret, (*((float_bits *)&expect_value)))
+            << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
+            << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
+            << "\nExpect: " << expect_value << " == 0x" << std::hex
+            << (*((float_bits *)&expect_value));
+    }
+    for (float_bits i = 0x80000000; i <= 0x8F800000; ++i) {
+        auto ret = float_twice(i);
+        auto expect_value = (2 * (*((float *)&i)));
+        ASSERT_EQ(ret, (*((float_bits *)&expect_value)))
+            << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
+            << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
+            << "\nExpect: " << expect_value << " == 0x" << std::hex
+            << (*((float_bits *)&expect_value));
+    }
+}
 
-/* TEST(chapter2, float_half) { */
-// for (float_bits i = 0; i <= 0x7F800000; ++i) {
-//     auto ret = float_half(i);
-//     auto expect_value = ((*((float *)&i)) * 0.5F);
-//     ASSERT_EQ(*((float *)&ret), expect_value)
-//         << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
-//         << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
-//         << "\nExpect: " << expect_value << " == 0x" << std::hex
-//         << (*((float_bits *)&expect_value));
-// }
-// for (float_bits i = 0x80000000; i <= 0x8F800000; ++i) {
-//     auto ret = float_half(i);
-//     auto expect_value = ((*((float *)&i)) * 0.5F);
-//     ASSERT_FLOAT_EQ(*((float *)&ret), expect_value)
-//         << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
-//         << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
-//         << "\nExpect: " << expect_value << " == 0x" << std::hex
-//         << (*((float_bits *)&expect_value));
-// }
-/* } */
+TEST(chapter2, float_half) {
+    for (float_bits i = 0; i <= 0x7F800000; ++i) {
+        auto ret = float_half(i);
+        auto expect_value = ((*((float *)&i)) * 0.5F);
+        ASSERT_EQ(*((float *)&ret), expect_value)
+            << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
+            << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
+            << "\nExpect: " << expect_value << " == 0x" << std::hex
+            << (*((float_bits *)&expect_value));
+    }
+    for (float_bits i = 0x80000000; i <= 0x8F800000; ++i) {
+        auto ret = float_half(i);
+        auto expect_value = ((*((float *)&i)) * 0.5F);
+        ASSERT_FLOAT_EQ(*((float *)&ret), expect_value)
+            << "Argument: " << (*((float *)&i)) << " == 0x" << std::hex << i
+            << "\nValue: " << (*((float *)&ret)) << " == 0x" << std::hex << ret
+            << "\nExpect: " << expect_value << " == 0x" << std::hex
+            << (*((float_bits *)&expect_value));
+    }
+}
 
-/* TEST(chapter2, float_f2i) { */
-// for (float_bits i = 0; i != 0xFFFFFFFF; ++i) {
-//     auto ret = Float{.binary = i};
-//     ASSERT_EQ(float_f2i(i), (int)ret.f) << "i: " << std::hex << i;
-// }
-/* } */
+TEST(chapter2, float_f2i) {
+    for (float_bits i = 0; i != 0xFFFFFFFF; ++i) {
+        auto ret = Float{.binary = i};
+        ASSERT_EQ(float_f2i(i), (int)ret.f) << "i: " << std::hex << i;
+    }
+}
 
-// TEST(chapter2, float_i2f) {
-//     for (int i = INT_MIN; i != INT_MAX; ++i) {
-//         auto res = Float{.binary = float_i2f(i)};
-//         auto ret = Float{.f = (float)i};
-//         ASSERT_EQ(res.binary, ret.binary)
-//             << "i: " << std::hex << "0x" << i << " = " << std::dec << i
-//             << "\nReturn: " << std::hex << "0x" << res.binary << " = " << res.f
-//             << "\nExpect: " << std::hex << "0x" << ret.binary << " = " << ret.f;
-//     }
-//     auto ret = Float{.f = (float)INT_MAX};
-//     ASSERT_EQ(float_i2f(INT_MAX), ret.binary);
-/* } */
+TEST(chapter2, float_i2f) {
+    for (int i = INT_MIN; i != INT_MAX; ++i) {
+        auto res = Float{.binary = float_i2f(i)};
+        auto ret = Float{.f = (float)i};
+        ASSERT_EQ(res.binary, ret.binary)
+            << "i: " << std::hex << "0x" << i << " = " << std::dec << i
+            << "\nReturn: " << std::hex << "0x" << res.binary << " = " << res.f
+            << "\nExpect: " << std::hex << "0x" << ret.binary << " = " << ret.f;
+    }
+    auto ret = Float{.f = (float)INT_MAX};
+    ASSERT_EQ(float_i2f(INT_MAX), ret.binary);
+}
