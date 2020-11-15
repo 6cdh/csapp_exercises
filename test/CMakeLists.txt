@@ -1,11 +1,24 @@
-aux_source_directory(. TEST_SRCS)
+# GoogleTest
+include(FetchContent)
 
-set(TEST_EXE tests)
+FetchContent_Declare(googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG        703bd9caab50b139428cea1aaff9974ebee5742e # 1.10.0
+    )
 
-# Now simply link against gtest or gtest_main as needed. Eg
+FetchContent_GetProperties(googletest)
+if(NOT googletest_POPULATED)
+    FetchContent_Populate(googletest)
+    add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
+endif()
 
-add_executable(${TEST_EXE} ${TEST_SRCS})
-target_link_libraries(${TEST_EXE} gtest_main ${SRC_LIB})
+# test
+
+aux_source_directory(. SRCS)
+
+set(TEST_EXE csapp_test)
+add_executable(${TEST_EXE} ${SRCS})
+
+target_link_libraries(${TEST_EXE} PRIVATE gtest ${SRC_LIB})
+
 add_test(NAME ${TEST_EXE} COMMAND ${TEST_EXE})
-
-enable_testing()
