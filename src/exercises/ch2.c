@@ -6,11 +6,17 @@ bool is_little_endian() {
     return *bp == 0x02;
 }
 
-bool any_bit_of_x_equal_1(int x) { return !(x ^ (~0)); }
+bool any_bit_of_x_equal_1(int x) {
+    return !(x ^ (~0));
+}
 
-bool any_bit_of_x_equal_0(int x) { return !(x | 0); }
+bool any_bit_of_x_equal_0(int x) {
+    return !(x | 0);
+}
 
-bool any_bit_in_lsb_of_x_equal_1(int x) { return !((x & 0xFF) ^ 0xFF); }
+bool any_bit_in_lsb_of_x_equal_1(int x) {
+    return !((x & 0xFF) ^ 0xFF);
+}
 
 bool any_bit_in_msb_of_x_equal_0(int x) {
     return !((x >> ((sizeof(x) - 1) << 3)) | 0);

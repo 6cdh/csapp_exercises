@@ -1,6 +1,8 @@
 #include "ch2_test.hpp"
 
-TEST(chapter2, is_little_endian) { EXPECT_EQ(is_little_endian(), true); }
+TEST(chapter2, is_little_endian) {
+    EXPECT_EQ(is_little_endian(), true);
+}
 
 TEST(chapter2, any_bit_of_x_equal_1) {
     EXPECT_EQ(any_bit_of_x_equal_1(0), false);

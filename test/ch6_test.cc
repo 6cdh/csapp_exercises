@@ -44,7 +44,7 @@ TEST(chapter6, col_convert) {
     int G2[dim * dim];
     for (size_t i = 0; i < dim * dim; ++i) {
         G[i] = static_cast<int>(rand()) % 2;
-        G1[i] =G[i];
+        G1[i] = G[i];
         G2[i] = G[i];
     }
     col_convert(G1, dim);

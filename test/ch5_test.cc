@@ -45,22 +45,22 @@ TEST(chapter5, memset_plus) {
 }
 
 // TEST(chapter5, memset_glibc) {
-    // const size_t n = 10000;
-    // const char c = 'a';
-    // auto a = new char[n];
-    // auto start = std::chrono::high_resolution_clock::now();
-    // memset_glibc(a, c, n);
-    // auto finish = std::chrono::high_resolution_clock::now();
-    // std::chrono::duration<double> elapsed = finish - start;
-    // std::cout << "glibc memset spend time: " << elapsed.count() << " s\n";
-    // delete[] a;
+// const size_t n = 10000;
+// const char c = 'a';
+// auto a = new char[n];
+// auto start = std::chrono::high_resolution_clock::now();
+// memset_glibc(a, c, n);
+// auto finish = std::chrono::high_resolution_clock::now();
+// std::chrono::duration<double> elapsed = finish - start;
+// std::cout << "glibc memset spend time: " << elapsed.count() << " s\n";
+// delete[] a;
 // }
 
 TEST(chapter5, poly) {
     const size_t n = 10000;
     double a[n];
     for (size_t i = 0; i < n; ++i) {
-        a[i] = static_cast <float> (rand());
+        a[i] = static_cast<float>(rand());
     }
     const double x = 10;
     // auto start = std::chrono::high_resolution_clock::now();
@@ -89,7 +89,7 @@ TEST(chapter5, psum) {
     psum(a, p, n);
     ASSERT_FLOAT_EQ(p[0], a[0]);
     for (size_t i = 1; i < n; ++i) {
-        ASSERT_FLOAT_EQ(p[i], p[i-1] + a[i]) << "i = " << i;
+        ASSERT_FLOAT_EQ(p[i], p[i - 1] + a[i]) << "i = " << i;
     }
     const size_t nn = 1;
     float aa[nn];

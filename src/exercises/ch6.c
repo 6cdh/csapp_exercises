@@ -18,7 +18,6 @@ void transpose(int *dst, int *src, int dim) {
     }
 }
 
-
 void col_convert(int *G, int dim) {
     int i, j;
     for (i = 0; i < dim; i++) {
