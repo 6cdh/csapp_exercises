@@ -29,12 +29,11 @@ git clone https://github.com/6cdh/csapp_exercises.git
 
 ```shell
 cd csapp_exercises
-mkdir build && cd build
-cmake -GNinja -DCMAKE_BUILD_TYPE=Release ..
-cmake --build .
+cmake -G Ninja -D CMAKE_BUILD_TYPE=Release -B build
+cmake --build build
 
 # Test
-./test/csapp_test
+./build/test/csapp_test
 ```
 
 ## Known Issues
